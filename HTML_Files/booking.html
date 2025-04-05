@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Booking System - PAYANAM</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="/assets/icons/logo1.png">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/CSS_Files/booking.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="/assets/icons/logo.png" alt="PAYANAM Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Bus Tickets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Routes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Offers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Help</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-outline-primary" href="#">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content Wrapper -->
+    <div class="content-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Filters</h2>
+                <button class="clear-all-btn">Clear All</button>
+            </div>
+
+            <div class="filter-section">
+                <h3>Bus Type</h3>
+                <div class="bus-type-container">
+                    <label class="bus-type-option">
+                        <input type="checkbox" name="busType" value="AC" />
+                        <div class="option-card">
+                            <i class="fas fa-snowflake"></i>
+                            <span>AC</span>
+                        </div>
+                    </label>
+                    <label class="bus-type-option">
+                        <input type="checkbox" name="busType" value="Non-AC" />
+                        <div class="option-card">
+                            <i class="fas fa-wind"></i>
+                            <span>Non-AC</span>
+                        </div>
+                    </label>
+                    <label class="bus-type-option">
+                        <input type="checkbox" name="busType" value="Seater" />
+                        <div class="option-card">
+                            <i class="fas fa-chair"></i>
+                            <span>Seater</span>
+                        </div>
+                    </label>
+                    <label class="bus-type-option">
+                        <input type="checkbox" name="busType" value="Sleeper" />
+                        <div class="option-card">
+                            <i class="fas fa-bed"></i>
+                            <span>Sleeper</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Departure Time</h3>
+                <div class="time-grid">
+                    <div class="time-option">
+                        <input type="radio" name="departureTime" value="midnight-6am" id="dep1">
+                        <label for="dep1"><i class="fas fa-cloud"></i> 12 midnight - 6 AM</label>
+                    </div>
+                    <div class="time-option">
+                        <input type="radio" name="departureTime" value="6am-noon" id="dep2">
+                        <label for="dep2"><i class="fas fa-sun"></i> 6 AM - 12 noon</label>
+                    </div>
+                    <div class="time-option">
+                        <input type="radio" name="departureTime" value="noon-6pm" id="dep3">
+                        <label for="dep3"><i class="fas fa-cloud-sun"></i> 12 noon - 6 PM</label>
+                    </div>
+                    <div class="time-option">
+                        <input type="radio" name="departureTime" value="6pm-midnight" id="dep4">
+                        <label for="dep4"><i class="fas fa-moon"></i> 6 PM - 12 midnight</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Arrival Time</h3>
+                <div class="time-grid">
+                    <div class="time-option">
+                        <input type="radio" name="arrivalTime" value="midnight-6am" id="arr1">
+                        <label for="arr1"><i class="fas fa-cloud"></i> 12 midnight - 6 AM</label>
+                    </div>
+                    <div class="time-option">
+                        <input type="radio" name="arrivalTime" value="6am-noon" id="arr2">
+                        <label for="arr2"><i class="fas fa-sun"></i> 6 AM - 12 noon</label>
+                    </div>
+                    <div class="time-option">
+                        <input type="radio" name="arrivalTime" value="noon-6pm" id="arr3">
+                        <label for="arr3"><i class="fas fa-cloud-sun"></i> 12 noon - 6 PM</label>
+                    </div>
+                    <div class="time-option">
+                        <input type="radio" name="arrivalTime" value="6pm-midnight" id="arr4">
+                        <label for="arr4"><i class="fas fa-moon"></i> 6 PM - 12 midnight</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3><i class="fas fa-map-marker-alt"></i> Boarding Points</h3>
+                <div class="search-container">
+                    <input type="text" placeholder="Search boarding point" class="search-bar" id="boardingSearch">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <div class="checkbox-list" id="boardingPoints">
+                    <label><input type="checkbox" value="Salem New Bus Stand"> Salem New Bus Stand</label>
+                    <label><input type="checkbox" value="Kondalampatti"> Kondalampatti</label>
+                    <label><input type="checkbox" value="Amma Pet Bypass"> Amma Pet Bypass</label>
+                    <label><input type="checkbox" value="Omala Nagar"> Omala Nagar</label>
+                    <label><input type="checkbox" value="Periyar Bus Stand"> Periyar Bus Stand</label>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3><i class="fas fa-map-marker-alt"></i> Dropping Points</h3>
+                <div class="search-container">
+                    <input type="text" placeholder="Search dropping point" class="search-bar" id="droppingSearch">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <div class="checkbox-list" id="droppingPoints">
+                    <label><input type="checkbox" value="Koyambedu"> Koyambedu</label>
+                    <label><input type="checkbox" value="Aavin Bus Stop"> Aavin Bus Stop</label>
+                    <label><input type="checkbox" value="Acharapakam"> Acharapakam</label>
+                    <label><input type="checkbox" value="Chennai Central"> Chennai Central</label>
+                    <label><input type="checkbox" value="Tambaram"> Tambaram</label>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3><i class="fas fa-bus"></i> Operators</h3>
+                <div class="search-container">
+                    <input type="text" placeholder="Search operators" class="search-bar" id="operatorSearch">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <div class="checkbox-list" id="operators">
+                    <label><input type="checkbox" value="Vijay Travels"> Vijay Travels</label>
+                    <label><input type="checkbox" value="SRL Travels"> SRL Travels</label>
+                    <label><input type="checkbox" value="Namasivaya Travels"> Namasivaya Travels</label>
+                    <label><input type="checkbox" value="Greenline Travels"> Greenline Travels</label>
+                    <label><input type="checkbox" value="Parveen Travels"> Parveen Travels</label>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <section class="search-info">
+                <div class="route-selection">
+                    <label for="fromCity">From</label>
+                    <input type="text" id="fromCity" value="Salem" />
+                    <label for="toCity">To</label>
+                    <input type="text" id="toCity" value="Koyambedu" />
+                    <label for="journeyDate">Departure Date</label>
+                    <input type="date" id="journeyDate" value="2025-03-24" />
+                    <button class="update-search-btn">Update Search</button>
+                </div>
+            </section>
+
+            <section class="promo-cards">
+                <div class="promo-card" data-filter="prime">
+                    <h4>Prime Buses</h4>
+                    <p>Buses with best amenities and top operators</p>
+                </div>
+                <div class="promo-card" data-filter="top-rated">
+                    <h4>Top Rated</h4>
+                    <p>Explore our highest rated buses on this route</p>
+                </div>
+                <div class="promo-card" data-filter="deals">
+                    <h4>Go Deals</h4>
+                    <p>Special Discounts up to 150 INR on selected buses</p>
+                </div>
+            </section>
+
+            <section class="results-header">
+                <span id="resultsCount">Showing 3 Buses</span>
+            </section>
+
+            <div id="busResults">
+                <div class="bus-card">
+                    <div class="bus-card-left">
+                        <h3>Vijay Travels</h3>
+                        <p>VE AC Seater / Sleeper (2+1)</p>
+                        <p>Boarding: Salem - 23:18</p>
+                        <p>Dropping: Koyambedu - 04:53</p>
+                        <span class="travel-duration">Duration: 5h 35m</span>
+                    </div>
+                    <div class="bus-card-right">
+                        <div class="price">
+                            <span>₹ 404</span>
+                        </div>
+                        <button class="select-seat-btn">Select Seat</button>
+                        <p class="features">Live Tracking</p>
+                    </div>
+                </div>
+
+                <div class="bus-card">
+                    <div class="bus-card-left">
+                        <h3>SRL Travels</h3>
+                        <p>Bharat Benz AC Sleeper (2+1)</p>
+                        <p>Boarding: Salem - 19:15</p>
+                        <p>Dropping: Koyambedu - 01:05</p>
+                        <span class="travel-duration">Duration: 5h 50m</span>
+                    </div>
+                    <div class="bus-card-right">
+                        <div class="price">
+                            <span>₹ 700</span>
+                        </div>
+                        <button class="select-seat-btn">Select Seat</button>
+                        <p class="features">Filling Fast</p>
+                    </div>
+                </div>
+
+                <div class="bus-card">
+                    <div class="bus-card-left">
+                        <h3>Namasivaya Travels</h3>
+                        <p>Non-AC Seater (2+2)</p>
+                        <p>Boarding: Salem - 21:00</p>
+                        <p>Dropping: Koyambedu - 03:00</p>
+                        <span class="travel-duration">Duration: 6h</span>
+                    </div>
+                    <div class="bus-card-right">
+                        <div class="price">
+                            <span>₹ 550</span>
+                        </div>
+                        <button class="select-seat-btn">Select Seat</button>
+                        <p class="features">Live Tracking</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>About PAYANAM</h5>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Info</h5>
+                    <ul>
+                        <li><a href="#">Traveller Reviews</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Bus Operator Registration</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Global Sites</h5>
+                    <ul>
+                        <li><a href="#">India</a></li>
+                        <li><a href="#">Singapore</a></li>
+                        <li><a href="#">Malaysia</a></li>
+                        <li><a href="#">Indonesia</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Contact Us</h5>
+                    <ul>
+                        <div class="city-image my-3">
+                            <img src="/assets/icons/logo.png" alt="logo">
+                        </div>
+                        <li><i class="fas fa-phone me-2"></i> +91 9876543210</li>
+                        <li><i class="fas fa-envelope me-2"></i> support@payanam.com</li>
+                        <li class="mt-2">
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center copyright">
+                    <p>© 2025 PAYANAM Bus Booking System. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/Script_Files/booking.js"></script>
+
+</body>
+
+</html>

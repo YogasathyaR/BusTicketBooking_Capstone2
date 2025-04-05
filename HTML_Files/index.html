@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAYANAM</title>
+    <link rel="icon" href="/assets/icons/logo1.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/CSS_Files/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="/assets/icons/logo.png" alt="PAYANAM Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Booking1.html" onclick="showLoader(event)">Bus Tickets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Routes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Offers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Help</a>
+                    </li>
+                    <li class="nav-item ms-lg-3 position-relative">
+                        <a class="btn btn-outline-primary" href="#" id="loginButton">Login/Signup</a>
+                        <!-- Login Widget -->
+                        <div class="login-widget" id="loginWidget">
+                            <div class="login-widget-header">
+                                <h5 class="login-widget-title">Login to PAYANAM</h5>
+                                <button class="login-widget-close" id="closeWidget">×</button>
+                            </div>
+                            <div class="login-widget-content">
+                                Get exclusive offers, manage your bookings, and access your travel history.
+                            </div>
+                            <ul class="login-widget-benefits">
+                                <li>Exclusive discounts for members</li>
+                                <li>Quick & easy booking</li>
+                                <li>Manage all your trips in one place</li>
+                                <li>Earn rewards on every booking</li>
+                            </ul>
+                            <button class="login-widget-btn" id="widgetLoginBtn">
+                                <i class="fas fa-sign-in-alt"></i> Login / Sign Up
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-banner">
+        <div class="container">
+            <h1 class="hero-title">Your Trusted Partner for Comfortable Bus Travel!</h1>
+        </div>
+    </div>
+
+    <!-- Booking Form -->
+    <div class="container">
+        <div class="booking-card">
+            <form id="bookingForm">
+                <div class="row align-items-end position-relative">
+                    <!-- From City -->
+                    <div class="col-md-5 mb-3">
+                        <label for="fromCity" class="form-label">FROM</label>
+                        <div class="form-select-wrapper position-relative">
+                            <i class="fas fa-map-marker-alt input-icon"></i>
+                            <select class="form-select input-with-icon" id="fromCity" required>
+                                <option value="" selected disabled>Select City</option>
+                                <option value="chennai">Chennai</option>
+                                <option value="bangalore">Bangalore</option>
+                                <option value="hyderabad">Hyderabad</option>
+                                <option value="mumbai">Mumbai</option>
+                                <option value="delhi">Delhi</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Swap Button -->
+                    <div class="col-md-2 mb-3 d-flex justify-content-center">
+                        <button type="button" class="btn btn-swap" id="swapCities">
+                            <i class="fas fa-exchange-alt"></i>
+                        </button>
+                    </div>
+
+                    <!-- To City -->
+                    <div class="col-md-5 mb-3">
+                        <label for="toCity" class="form-label">TO</label>
+                        <div class="form-select-wrapper position-relative">
+                            <i class="fas fa-map-marker-alt input-icon"></i>
+                            <select class="form-select input-with-icon" id="toCity" required>
+                                <option value="" selected disabled>Select City</option>
+                                <option value="chennai">Chennai</option>
+                                <option value="bangalore">Bangalore</option>
+                                <option value="hyderabad">Hyderabad</option>
+                                <option value="mumbai">Mumbai</option>
+                                <option value="delhi">Delhi</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Departure Date -->
+                    <div class="col-md-5 mb-3">
+                        <label for="journeyDate" class="form-label">DEPARTURE</label>
+                        <div class="position-relative">
+                            <i class="far fa-calendar-alt input-icon"></i>
+                            <input type="date" class="form-control input-with-icon" id="journeyDate" required>
+                        </div>
+                    </div>
+
+                    <!-- Return Date -->
+                    <div class="col-md-5 mb-3">
+                        <label for="returnDate" class="form-label">RETURN (OPTIONAL)</label>
+                        <div class="position-relative">
+                            <i class="far fa-calendar-alt input-icon"></i>
+                            <input type="date" class="form-control input-with-icon" id="returnDate">
+                        </div>
+                    </div>
+
+                    <!-- Search Button -->
+                    <div class="col-md-2 mb-3 d-flex align-items-end">
+                        <button type="submit" class="btn btn-search rounded-pill">
+                            <i class="fas fa-search me-2"></i> SEARCH
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Exclusive Offers Carousel Section -->
+    <section class="exclusive-offers-section">
+        <div class="container">
+            <h2>UNBEATABLE TRAVEL OFFERS</h2>
+            <div class="owl-carousel exclusive-carousel owl-theme">
+                <!-- Slide 1 -->
+                <div class="item">
+                    <div class="exclusive-offer-card">
+                        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Luxury Bus">
+                        <div class="content">
+                            <h3>SUMMER SPECIAL</h3>
+                            <p>25% OFF on all hill station routes</p>
+                            <button class="exclusive-cta-btn">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="item">
+                    <div class="exclusive-offer-card">
+                        <img src="https://images.unsplash.com/photo-1506260408121-e353d10b87c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Scenic Travel">
+                        <div class="content">
+                            <h3>EARLY BIRD DEAL</h3>
+                            <p>Book 30 days in advance and save 30%</p>
+                            <button class="exclusive-cta-btn">Grab Deal</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="item">
+                    <div class="exclusive-offer-card">
+                        <img src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Comfortable Seats">
+                        <div class="content">
+                            <h3>FLEXI PLAN</h3>
+                            <p>Free date changes on premium buses</p>
+                            <button class="exclusive-cta-btn">Explore Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Government Buses Section -->
+    <div class="container" style="margin-top: 10%; margin-bottom: 10%; background-color: white; padding: 3%; border-radius: 10px;">
+        <h2 class="section-title mb-5">GOVERNMENT BUS SERVICES</h2>
+        <div class="owl-carousel owl-theme gov-bus-offers-carousel">
+            <!-- APSRTC Card -->
+            <div class="item">
+                <div class="offer-card h-100 d-flex flex-column">
+                    <div class="offer-badge">PREMIUM</div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="gov-bus-logo">
+                            <img src="/assets/icons/logo1.png" alt="APSRTC Logo">
+                        </div>
+                        <h5 class="offer-title mb-0">APSRTC Garuda</h5>
+                    </div>
+                    <p class="offer-desc flex-grow-1">AC Volvo multi-axle buses with push-back seats and onboard entertainment</p>
+                    <p class="gov-bus-partner mb-2"><span class="badge bg-primary">Certified Partner</span></p>
+                    <p class="gov-bus-offer">Routes: Hyderabad-Vijayawada, Bangalore-Visakhapatnam</p>
+                    <button class="btn btn-sm btn-outline-primary mt-2">Check Services</button>
+                </div>
+            </div>
+    
+            <!-- KSRTC Card -->
+            <div class="item">
+                <div class="offer-card h-100 d-flex flex-column">
+                    <div class="offer-badge">SCENIC</div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="gov-bus-logo">
+                            <img src="/assets/icons/logo1.png" alt="KSRTC Logo">
+                        </div>
+                        <h5 class="offer-title mb-0">KSRTC Airavat</h5>
+                    </div>
+                    <p class="offer-desc flex-grow-1">AC sleeper class buses with panoramic windows for hill routes</p>
+                    <p class="gov-bus-partner mb-2"><span class="badge bg-primary">Authorized Service</span></p>
+                    <p class="gov-bus-offer">Routes: Bangalore-Munnar, Chennai-Wayanad</p>
+                    <button class="btn btn-sm btn-outline-primary mt-2">Check Services</button>
+                </div>
+            </div>
+    
+            <!-- TSRTC Card -->
+            <div class="item">
+                <div class="offer-card h-100 d-flex flex-column">
+                    <div class="offer-badge">EXPRESS</div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="gov-bus-logo">
+                            <img src="/assets/icons/logo1.png" alt="TSRTC Logo">
+                        </div>
+                        <h5 class="offer-title mb-0">TSRTC Rajdhani</h5>
+                    </div>
+                    <p class="offer-desc flex-grow-1">Non-stop express services between major cities with minimal halts</p>
+                    <p class="gov-bus-partner mb-2"><span class="badge bg-primary">Trusted Provider</span></p>
+                    <p class="gov-bus-offer">Routes: Hyderabad-Bangalore, Hyderabad-Vijayawada</p>
+                    <button class="btn btn-sm btn-outline-primary mt-2">Check Services</button>
+                </div>
+            </div>
+    
+            <!-- MSRTC Card -->
+            <div class="item">
+                <div class="offer-card h-100 d-flex flex-column">
+                    <div class="offer-badge">DELUXE</div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="gov-bus-logo">
+                            <img src="/assets/icons/logo1.png" alt="MSRTC Logo">
+                        </div>
+                        <h5 class="offer-title mb-0">MSRTC Shivneri</h5>
+                    </div>
+                    <p class="offer-desc flex-grow-1">AC semi-sleeper buses with charging points and WiFi</p>
+                    <p class="gov-bus-partner mb-2"><span class="badge bg-primary">Official Partner</span></p>
+                    <p class="gov-bus-offer">Routes: Mumbai-Pune, Mumbai-Nashik, Mumbai-Goa</p>
+                    <button class="btn btn-sm btn-outline-primary mt-2">Check Services</button>
+                </div>
+            </div>
+    
+            <!-- UPSRTC Card -->
+            <div class="item">
+                <div class="offer-card h-100 d-flex flex-column">
+                    <div class="offer-badge">LUXURY</div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="gov-bus-logo">
+                            <img src="/assets/icons/logo1.png" alt="UPSRTC Logo">
+                        </div>
+                        <h5 class="offer-title mb-0">UPSRTC Volvo</h5>
+                    </div>
+                    <p class="offer-desc flex-grow-1">Premium AC buses with recliner seats and personal entertainment</p>
+                    <p class="gov-bus-partner mb-2"><span class="badge bg-primary">Approved Operator</span></p>
+                    <p class="gov-bus-offer">Routes: Delhi-Lucknow, Delhi-Dehradun, Delhi-Agra</p>
+                    <button class="btn btn-sm btn-outline-primary mt-2">Check Services</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="containerExploreSection my-5">
+        <div class="explore-more-section">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center">
+                    <img src="/assets/Bus.png" alt="Bus Illustration" class="explore-image">
+                </div>
+                <div class="col-md-6">
+                    <h2 class="explore-title">DISCOVER PREMIUM TRAVEL OPTIONS</h2>
+                    <p class="explore-subtitle">Payanam connects you with the finest bus services across India, offering
+                        comfort, safety, and reliability.</p>
+                    <ul class="explore-features">
+                        <li><i class="fas fa-check-circle me-2 text-primary"></i>Luxury coaches with spacious seating
+                        </li>
+                        <li><i class="fas fa-check-circle me-2 text-primary"></i>Onboard entertainment and WiFi</li>
+                        <li><i class="fas fa-check-circle me-2 text-primary"></i>Eco-friendly electric bus options</li>
+                        <li><i class="fas fa-check-circle me-2 text-primary"></i>Priority boarding for premium customers
+                        </li>
+                    </ul>
+                    <a href="../Booking1.html" onclick="showLoader(event)" class="btn btn-primary mt-3">Book Bus
+                        Tickets</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loading-overlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Redirecting to Booking Page...</p>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 800px;">
+            <div class="modal-content border-0">
+                <div class="modal-header position-relative border-0 py-0 px-4">
+                    <button type="button" class="btn-close position-absolute" data-bs-dismiss="modal" aria-label="Close"
+                        style="right: 20px; top: 20px; z-index: 1;"></button>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="modal-body p-0">
+                    <div class="row g-0">
+                        <div class="col-md-6 d-none d-md-block">
+                            <div class="login-modal-image h-100"
+                                style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center; border-radius: 0 0 0 10px; margin: 0; padding: 0;">
+                                <div class="d-flex flex-column justify-content-center align-items-center text-white h-100 p-4 text-center"
+                                    data-aos="fade-right" style="margin: 0;">
+                                    <h3 class="mb-4">Welcome Back!</h3>
+                                    <p>Login to access your bookings, manage trips, and get exclusive offers.</p>
+                                    <div class="mt-4">
+                                        <i class="fas fa-bus fa-3x mb-3"></i>
+                                        <p class="small">Your journey starts here</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Forms section -->
+                        <div class="col-md-6">
+                            <div class="p-4 p-lg-5" style="min-height: 500px;">
+                                <!-- OTP Login Form -->
+                                <div id="otpLoginForm">
+                                    <div class="text-center mb-4" data-aos="fade-up">
+                                        <img src="/assets/icons/logo.png" alt="PAYANAM Logo" width="120" class="mb-3">
+                                        <h2 class="h4" style="color: var(--primary-color);">Login with Mobile Number
+                                        </h2>
+                                    </div>
+
+                                    <form id="mobileForm" data-aos="fade-up" data-aos-delay="100">
+                                        <div class="mb-3">
+                                            <label for="mobileNumber" class="form-label small text-muted">Mobile
+                                                Number</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text bg-transparent border-end-0">+91</span>
+                                                <input type="tel" class="form-control" id="mobileNumber"
+                                                    placeholder="Enter 10-digit mobile number" pattern="[0-9]{10}"
+                                                    required>
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary w-100 py-2 mb-3"
+                                            style="background-color: var(--primary-color); border-color: var(--primary-color);">
+                                            <i class="fas fa-mobile-alt me-2"></i> Send OTP
+                                        </button>
+
+                                        <div class="text-center mb-3">
+                                            <p class="small">Or <a href="#" id="showEmailLogin"
+                                                    class="text-decoration-none"
+                                                    style="color: var(--primary-color);">login with email</a></p>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!-- OTP Verification Form (Hidden initially) -->
+                                <div id="otpVerificationForm" style="display: none;">
+                                    <div class="text-center mb-4">
+                                        <button type="button" class="btn btn-sm btn-link position-absolute"
+                                            style="left: 20px; top: 20px;" id="backToMobileForm">
+                                            <i class="fas fa-arrow-left"></i> Back
+                                        </button>
+                                        <img src="/assets/icons/logo.png" alt="PAYANAM Logo" width="100" class="mb-3">
+                                        <h2 class="h4" style="color: var(--primary-color);">Verify OTP</h2>
+                                        <p class="small text-muted">Enter the 6-digit OTP sent to <span
+                                                id="displayMobileNumber"></span></p>
+                                    </div>
+
+                                    <form id="verifyOtpForm">
+                                        <div class="mb-3">
+                                            <div class="d-flex justify-content-center gap-2 mb-3">
+                                                <input type="text" class="form-control otp-input text-center"
+                                                    maxlength="1" style="width: 45px; height: 45px; font-size: 1.2rem;">
+                                                <input type="text" class="form-control otp-input text-center"
+                                                    maxlength="1" style="width: 45px; height: 45px; font-size: 1.2rem;">
+                                                <input type="text" class="form-control otp-input text-center"
+                                                    maxlength="1" style="width: 45px; height: 45px; font-size: 1.2rem;">
+                                                <input type="text" class="form-control otp-input text-center"
+                                                    maxlength="1" style="width: 45px; height: 45px; font-size: 1.2rem;">
+                                                <input type="text" class="form-control otp-input text-center"
+                                                    maxlength="1" style="width: 45px; height: 45px; font-size: 1.2rem;">
+                                                <input type="text" class="form-control otp-input text-center"
+                                                    maxlength="1" style="width: 45px; height: 45px; font-size: 1.2rem;">
+                                            </div>
+                                            <div id="otpError" class="text-danger small text-center"
+                                                style="display: none;">Incorrect OTP. Please try again.</div>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary w-100 py-2 mb-3"
+                                            style="background-color: var(--primary-color); border-color: var(--primary-color);">
+                                            <i class="fas fa-check-circle me-2"></i> Verify OTP
+                                        </button>
+
+                                        <div class="text-center mb-3">
+                                            <p class="small">Didn't receive OTP?
+                                                <a href="#" id="resendOtp" class="text-decoration-none"
+                                                    style="color: var(--primary-color); display: none;">Resend OTP</a>
+                                                <span id="otpTimer">Resend OTP in <span id="countdown">30</span>s</span>
+                                            </p>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!-- Email Login Form (Hidden initially) -->
+                                <div id="emailLoginForm" style="display: none;">
+                                    <div class="text-center mb-4">
+                                        <button type="button" class="btn btn-sm btn-link position-absolute"
+                                            style="left: 20px; top: 20px;" id="backToOtpForm">
+                                            <i class="fas fa-arrow-left"></i> Back
+                                        </button>
+                                        <img src="/assets/icons/logo.png" alt="PAYANAM Logo" width="120" class="mb-3">
+                                        <h2 class="h4" style="color: var(--primary-color);">Login with Email</h2>
+                                    </div>
+
+                                    <form id="loginForm">
+                                        <div class="mb-3">
+                                            <label for="loginEmail" class="form-label small text-muted">Email
+                                                Address</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text bg-transparent border-end-0"><i
+                                                        class="fas fa-envelope text-muted"></i></span>
+                                                <input type="email" class="form-control border-start-0" id="loginEmail"
+                                                    placeholder="Enter your email" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="loginPassword"
+                                                class="form-label small text-muted">Password</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text bg-transparent border-end-0"><i
+                                                        class="fas fa-lock text-muted"></i></span>
+                                                <input type="password" class="form-control" id="loginPassword"
+                                                    placeholder="Enter password" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3 d-flex justify-content-between">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="rememberMe">
+                                                <label class="form-check-label small" for="rememberMe">Remember
+                                                    me</label>
+                                            </div>
+                                            <a href="#forgotPassword" class="small text-decoration-none"
+                                                data-bs-toggle="collapse" style="color: var(--primary-color);">Forgot
+                                                password?</a>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary w-100 py-2 mb-3"
+                                            style="background-color: var(--primary-color); border-color: var(--primary-color);">
+                                            <i class="fas fa-sign-in-alt me-2"></i> Login
+                                        </button>
+                                    </form>
+
+                                    <!-- Google Sign-In Button -->
+                                    <div class="d-flex justify-content-center mb-3">
+                                        <button type="button" class="btn btn-outline-primary rounded-pill"
+                                            id="googleSignInEmail">
+                                            <img src="../assets/Google.webp" alt="Google logo" width="20" class="me-2">
+                                            Sign in with Google
+                                        </button>
+                                    </div>
+
+                                    <!-- Forgot Password Form (Hidden initially) -->
+                                    <div class="collapse" id="forgotPassword">
+                                        <div class="p-3 rounded" style="background-color: #f8f9fa;">
+                                            <h5 class="mb-3 text-center">Forgot Password?</h5>
+                                            <form id="forgotPasswordForm">
+                                                <div class="mb-3">
+                                                    <label for="forgotEmail" class="form-label small text-muted">Email
+                                                        Address</label>
+                                                    <input type="email" class="form-control" id="forgotEmail"
+                                                        placeholder="Enter your email" required>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary w-100 py-2"
+                                                    style="background-color: var(--primary-color); border-color: var(--primary-color);">
+                                                    <i class="fas fa-paper-plane me-2"></i> Send Reset Link
+                                                </button>
+                                            </form>
+                                            <div class="text-center mt-3">
+                                                <a href="#loginForm" class="small text-decoration-none"
+                                                    data-bs-toggle="collapse" style="color: var(--primary-color);">
+                                                    <i class="fas fa-arrow-left me-1"></i> Back to login
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Success Screen (Hidden initially) -->
+                                <div id="successScreen" class="text-center" style="display: none;">
+                                    <div class="mb-4">
+                                        <div class="success-checkmark">
+                                            <div class="check-icon"
+                                                style="width: 80px; height: 80px; margin: 0 auto; background-color: #4CAF50; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                                <i class="fas fa-check" style="color: white; font-size: 40px;"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h3 class="mb-3" style="color: var(--primary-color);">Welcome Back!</h3>
+                                    <p class="mb-4">You have successfully logged in to your PAYANAM account.</p>
+                                    <button class="btn btn-primary"
+                                        style="background-color: var(--primary-color); border-color: var(--primary-color);"
+                                        data-bs-dismiss="modal">
+                                        Continue to Dashboard
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Prime Bus Operators Section -->
+    <div class="container my-5">
+        <div class="prime-section">
+            <div class="prime-header">
+                <span class="prime-badge">PREMIUM</span>
+                <h2 class="prime-title mb-3">CURATED TRAVEL EXPERIENCES</h2>
+            </div>
+            <h3 class="prime-subtitle">FEATURED OPERATORS</h3>
+
+            <div class="prime-features row justify-content-center g-4 mt-4">
+                <div class="col-md-3">
+                    <div class="prime-card">
+                        <div class="card-image">
+                            <img src="/assets/bus1.jpeg" alt="Royal Rides" class="img-fluid">
+                        </div>
+                        <div class="card-body">
+                            <h4 class="prime-feature-title">Royal Rides</h4>
+                            <p class="prime-feature-desc">Luxury sleeper coaches with personal entertainment</p>
+                            <div class="rating">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star-half-alt text-warning"></i>
+                                <span class="ms-2">4.7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="prime-card">
+                        <div class="card-image">
+                            <img src="/assets/bus5.jpg" alt="Green Line" class="img-fluid">
+                        </div>
+                        <div class="card-body">
+                            <h4 class="prime-feature-title">Green Line</h4>
+                            <p class="prime-feature-desc">Eco-friendly electric buses with zero emissions</p>
+                            <div class="rating">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <span class="ms-2">4.9</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="prime-card">
+                        <div class="card-image">
+                            <img src="/assets/bus6.webp" alt="City Express" class="img-fluid">
+                        </div>
+                        <div class="card-body">
+                            <h4 class="prime-feature-title">City Express</h4>
+                            <p class="prime-feature-desc">Business class travel with workstations</p>
+                            <div class="rating">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <span class="ms-2">5.0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="prime-subtitle my-5">Connecting All of India</h4>
+            <div class="prime-cities">
+                <div class="prime-city">
+                    <div class="city-image">
+                        <img src="/assets/uttarkhand.jpeg" alt="Uttarakhand">
+                    </div>
+                    <span class="city-name">Uttarakhand</span>
+                </div>
+                <div class="prime-city">
+                    <div class="city-image">
+                        <img src="/assets/TN.jpeg" alt="Tamil Nadu">
+                    </div>
+                    <span class="city-name">Tamil Nadu</span>
+                </div>
+                <div class="prime-city">
+                    <div class="city-image">
+                        <img src="/assets/Kerala.jpg" alt="Kerala">
+                    </div>
+                    <span class="city-name">Kerala</span>
+                </div>
+                <div class="prime-city">
+                    <div class="city-image">
+                        <img src="/assets/Rajasthan.jpg" alt="Rajasthan">
+                    </div>
+                    <span class="city-name">Rajasthan</span>
+                </div>
+                <div class="prime-city">
+                    <div class="city-image">
+                        <img src="/assets/goa.jpg" alt="Goa">
+                    </div>
+                    <span class="city-name">Goa</span>
+                </div>
+                <div class="prime-city">
+                    <div class="city-image">
+                        <img src="/assets/karnataka.jpeg" alt="Karnataka">
+                    </div>
+                    <span class="city-name">Karnataka</span>
+                </div>
+                <div class="prime-city">
+                    <div class="city-image">
+                        <img src="/assets/sikkim.jpeg" alt="Sikkim">
+                    </div>
+                    <span class="city-name">Sikkim</span>
+                </div>
+                <div class="prime-city">
+                    <div class="city-image">
+                        <img src="/assets/delhi.jpeg" alt="Delhi">
+                    </div>
+                    <span class="city-name">Delhi</span>
+                </div>
+            </div>
+
+            <div class="prime-cta my-5 d-flex justify-content-center align-items-center">
+                <a href="#" class="btn btn-prime">View All Prime Buses</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Why Choose Payanam Section -->
+    <div class="container py-5" style="margin-block:8%">
+        <h2 class="text-center mb-5" style="font-size: 2.2rem; font-weight: 700; color: #2a3f54;">Why Choose Payanam?
+        </h2>
+
+        <div class="row g-5">
+            <!-- Card 1 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="payanam-card">
+                    <div class="card-icon" style="background-color: #fff6e9;">
+                        <i class="fas fa-bolt" style="color: #f7931e;"></i>
+                    </div>
+                    <h3>Lightning Fast Booking</h3>
+                    <p>Book your bus tickets in just 30 seconds with our super-fast platform</p>
+                    <div class="card-stats">
+                        <span>98%</span>
+                        <small>Success Rate</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="payanam-card">
+                    <div class="card-icon" style="background-color: #e8f5e9;">
+                        <i class="fas fa-shield-alt" style="color: #4caf50;"></i>
+                    </div>
+                    <h3>100% Safe & Secure</h3>
+                    <p>Your transactions are protected with bank-level security encryption</p>
+                    <div class="card-stats">
+                        <span>5M+</span>
+                        <small>Happy Customers</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="payanam-card">
+                    <div class="card-icon" style="background-color: #e3f2fd;">
+                        <i class="fas fa-percentage" style="color: #2196f3;"></i>
+                    </div>
+                    <h3>Best Price Guarantee</h3>
+                    <p>We guarantee the lowest prices or we'll refund the difference</p>
+                    <div class="card-stats">
+                        <span>50K+</span>
+                        <small>Routes Covered</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="payanam-card">
+                    <div class="card-icon" style="background-color: #fce4ec;">
+                        <i class="fas fa-headset" style="color: #e91e63;"></i>
+                    </div>
+                    <h3>24/7 Customer Support</h3>
+                    <p>Our travel experts are available round the clock to assist you</p>
+                    <div class="card-stats">
+                        <span>10M+</span>
+                        <small>Tickets Booked</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Widget -->
+    <div class="promo-widget">
+        <button class="close-btn" aria-label="Close promotion">×</button>
+        <div class="promo-content">
+            <div class="promo-badge">Limited Offer</div>
+            <h3>Luxury Bus Rentals</h3>
+            <p>Travel in style with our premium fleet for any occasion!</p>
+            <ul class="promo-features">
+                <li>AC Luxury</li>
+                <li>WiFi Enabled</li>
+                <li>24/7 Support</li>
+            </ul>
+            <button class="explore-btn">
+                Book Now <span class="arrow">→</span>
+            </button>
+        </div>
+        <div class="promo-image">
+            <img src="/assets/luxurious_bus.png" alt="Luxury Bus">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background-color: white;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 style="color: #6c757d;">About PAYANAM</h5>
+                    <ul>
+                        <li><a href="#" style="color: #6c757d;">About Us</a></li>
+                        <li><a href="#" style="color: #6c757d;">Careers</a></li>
+                        <li><a href="#" style="color: #6c757d;">Blog</a></li>
+                        <li><a href="#" style="color: #6c757d;">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 style="color: #6c757d;">Info</h5>
+                    <ul>
+                        <li><a href="#" style="color: #6c757d;">Traveller Reviews</a></li>
+                        <li><a href="#" style="color: #6c757d;">Privacy Policy</a></li>
+                        <li><a href="#" style="color: #6c757d;">FAQ</a></li>
+                        <li><a href="#" style="color: #6c757d;">Bus Operator Registration</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 style="color: #6c757d;">Global Sites</h5>
+                    <ul>
+                        <li><a href="#" style="color: #6c757d;">India</a></li>
+                        <li><a href="#" style="color: #6c757d;">Singapore</a></li>
+                        <li><a href="#" style="color: #6c757d;">Malaysia</a></li>
+                        <li><a href="#" style="color: #6c757d;">Indonesia</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 style="color: #6c757d;">Contact Us</h5>
+                    <ul>
+                        <div class="city-image my-3">
+                            <img src="/assets/icons/logo.png" alt="logo">
+                        </div>
+                        <li style="color: #6c757d;"><i class="fas fa-phone me-2"></i> +91 9876543210</li>
+                        <li style="color: #6c757d;"><i class="fas fa-envelope me-2"></i> support@payanam.com</li>
+                        <li class="mt-2">
+                            <div class="social-icons">
+                                <a href="#" style="color: #494646;"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" style="color: #494646;"><i class="fab fa-twitter"></i></a>
+                                <a href="#" style="color: #494646;"><i class="fab fa-instagram"></i></a>
+                                <a href="#" style="color: #494646;"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center copyright" style="border-top: 1px solid rgba(0, 0, 0, 0.1);">
+                    <p style="color: #6c757d;">© 2025 PAYANAM Bus Booking System. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="/Script_Files/script.js"></script>
+</body>
+</html>

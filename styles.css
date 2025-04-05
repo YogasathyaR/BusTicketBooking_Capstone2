@@ -1,0 +1,956 @@
+:root {
+    --primary-color: #f7931e;
+    --primary-hover: #e07e0d;
+    --secondary-color: #2a3f54;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --border-color: #e0e0e0;
+    --text-muted: #6c757d;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    padding-top: 90px;
+}
+
+.navbar {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: white !important;
+    padding: 15px 0;
+    transition: all 0.3s ease;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar.shrink {
+    padding: 5px 0;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    padding: 0;
+    height: 60px;
+    transition: all 0.3s ease;
+}
+
+.navbar.shrink .navbar-brand {
+    height: 50px;
+}
+
+.navbar-brand img {
+    height: 100%;
+    width: auto;
+    max-width: 180px;
+    object-fit: contain;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+.navbar.shrink .navbar-brand img {
+    max-width: 150px;
+}
+
+.navbar-collapse {
+    align-items: center;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
+    color: var(--secondary-color);
+    padding: 8px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--primary-color);
+    background-color: rgba(247, 147, 30, 0.1);
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Hero Banner */
+.hero-banner {
+    background-image: url('assets/imgBanner1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(238, 231, 196, 0.7), rgba(246, 214, 69, 0.36));
+}
+
+.hero-banner .container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+.hero-title {
+    /* color: #e3671f; */
+    color: #4a08bd;
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 30%;
+    text-shadow: 2px 2px 10px rgba(172, 172, 172, 0.5);
+}
+
+/* Booking Form */
+.booking-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    margin-top: -80px;
+    position: relative;
+    z-index: 10;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.booking-card:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+/* Select Dropdown */
+.form-select-wrapper {
+    position: relative;
+}
+
+.form-select-wrapper::after {
+    content: '\f078';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+.form-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px !important;
+    padding: 12px 40px 12px 15px;
+    font-size: 1rem;
+    color: var(--secondary-color);
+    transition: all 0.3s;
+    background-image: none;
+    height: auto;
+}
+
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(247, 147, 30, 0.25);
+}
+
+/* Improved Date Input */
+.form-control {
+    border: 1px solid var(--border-color);
+    border-radius: 8px !important;
+    padding: 12px 15px;
+    font-size: 1rem;
+    color: var(--secondary-color);
+    transition: all 0.3s;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(247, 147, 30, 0.25);
+}
+
+/* Swap Button */
+.btn-swap {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.btn-swap:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+
+/* Search Button */
+.btn-search {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    padding: 10px 25px;
+    font-weight: 600;
+    /* border-radius: 5px; */
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    /* height: 100%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-search:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(247, 147, 30, 0.3);
+}
+
+/* Input Icons */
+.input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    z-index: 3;
+}
+
+.input-with-icon {
+    padding-left: 40px !important;
+}
+
+/* Section Styles */
+.section-title {
+    color: var(--secondary-color);
+    font-weight: 700;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.offer-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s;
+    border: 1px solid var(--primary-color);
+}
+
+.offer-card:hover {
+    transform: translateY(-5px);
+}
+
+.offer-title {
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.offer-desc {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+footer {
+background-color: white;
+padding: 40px 0 20px;
+margin-top: 50px;
+}
+
+.footer h5 {
+font-weight: 600;
+margin-bottom: 20px;
+color: #6c757d; /* Grey color for headings */
+}
+
+.footer ul {
+list-style: none;
+padding-left: 0;
+}
+
+.footer li {
+margin-bottom: 10px;
+color: #6c757d; /* Grey color for list items */
+}
+
+.footer a {
+color: #6c757d; /* Grey color for links */
+transition: color 0.3s;
+}
+
+ul li a {
+text-decoration: none;
+cursor: pointer;
+}
+/* 
+.footer ul li a:hover {
+color: var(--primary-color); 
+} */
+
+.social-icons a {
+color: #494646;
+font-size: 1.2rem;
+margin-right: 15px;
+transition: color 0.3s;
+}
+
+.social-icons a:hover {
+color: var(--primary-color); /* Light orange on hover */
+}
+
+.copyright {
+border-top: 1px solid rgba(0, 0, 0, 0.1);
+padding-top: 20px;
+margin-top: 30px;
+}
+
+/* Government Bus Carousel */
+.gov-bus-carousel-wrapper {
+    background: linear-gradient(60deg, #420285, #08BDBD);
+    border-radius: 15px;
+    padding: 40px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.gov-bus-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    height: 230px;
+}
+
+.gov-bus-card {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    padding: 20px;
+    opacity: 0;
+    filter: drop-shadow(0 2px 2px #555);
+    will-change: transform, opacity;
+    animation: none;
+    background-color: white;
+    border-radius: 10px;
+    height: 200px;
+    transition: all 0.5s ease;
+}
+
+.gov-bus-card.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    z-index: 2;
+}
+
+.gov-bus-card.next {
+    opacity: 0.4;
+    transform: translateY(100%) scale(0.7);
+    z-index: 1;
+}
+
+.gov-bus-card.prev {
+    opacity: 0.4;
+    transform: translateY(-100%) scale(0.7);
+    z-index: 1;
+}
+
+.gov-bus-logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: #d7f7fc;
+    padding: 14px;
+    position: relative;
+    margin-right: 20px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+}
+
+.gov-bus-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.gov-bus-content {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 16px 20px 16px 20px;
+}
+
+.gov-bus-title {
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-top: 0;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.gov-bus-desc {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.gov-bus-partner .badge {
+    font-size: 0.8rem;
+    background-color: var(--primary-color);
+}
+
+.gov-bus-offer {
+    font-size: 0.9rem;
+    color: #333;
+    margin-top: 10px;
+}
+
+/* Carousel Controls */
+.carousel-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    z-index: 10;
+}
+
+.carousel-control {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.carousel-control.active {
+    background-color: white;
+    transform: scale(1.2);
+}
+
+/* Prime Section */
+.prime-section {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+}
+
+.prime-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 100%);
+    z-index: 1;
+}
+
+.prime-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.prime-badge {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-right: 15px;
+}
+
+.prime-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 0;
+}
+
+.prime-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.prime-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.prime-feature {
+    flex: 1;
+    min-width: 200px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.prime-feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.prime-feature-title {
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.prime-feature-title i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.prime-feature-desc {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.prime-countries {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.prime-country {
+    background-color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.prime-cta {
+    margin-top: 30px;
+}
+
+.btn-prime {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 30px;
+    transition: all 0.3s;
+}
+
+.btn-prime:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(247, 147, 30, 0.3);
+}
+
+/* Explore More Bus Services Section */
+.explore-more-section {
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.explore-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.explore-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.explore-features {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.explore-features li {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.explore-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.offers-carousel .owl-stage {
+    padding: 20px 0;
+}
+
+.offers-carousel .owl-item {
+    padding: 0 10px;
+}
+
+.offers-carousel .owl-nav {
+    position: absolute;
+    top: -70px;
+    right: 0;
+}
+
+.offers-carousel .owl-nav button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50% !important;
+    background: var(--primary-color) !important;
+    color: white !important;
+    margin-left: 10px;
+    transition: all 0.3s;
+}
+
+.offers-carousel .owl-nav button:hover {
+    background: var(--primary-hover) !important;
+}
+
+.offers-carousel .owl-dots {
+    margin-top: 20px;
+}
+
+.offers-carousel .owl-dots button.owl-dot span {
+    width: 10px;
+    height: 10px;
+    background: #ddd;
+    transition: all 0.3s;
+}
+
+.offers-carousel .owl-dots button.owl-dot.active span {
+    background: var(--primary-color);
+    width: 30px;
+}
+
+.offer-badge {
+    position: absolute;
+    top: -10px;
+    right: 15px;
+    /* background: var(--primary-color); */
+    background-color: blue;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+/* Prime Cities Section */
+.prime-cities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.prime-city {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+}
+
+.city-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border: 2px solid rgb(255, 154, 21);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.city-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.city-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+    color: var(--secondary-color);
+}
+
+.payanam-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px 25px;
+    height: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    position: relative;
+    overflow: hidden;
+}
+
+.payanam-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.payanam-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(to bottom, #4e2d07, #ffb74d);
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.payanam-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2a3f54;
+    margin-bottom: 15px;
+}
+
+.payanam-card p {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.card-stats {
+    background: #f8f9fa;
+    padding: 10px 15px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.card-stats span {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2a3f54;
+    display: block;
+    line-height: 1;
+}
+
+.card-stats small {
+    font-size: 0.7rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+        margin-bottom: 20%;
+    }
+
+    .booking-card {
+        margin-top: 20px;
+        padding: 20px;
+    }
+
+    #swapCities {
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+
+    .hero-banner {
+        min-height: 300px;
+    }
+
+    .btn-swap {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin: 15px auto;
+    }
+
+    .gov-bus-card {
+        margin-bottom: 20px;
+    }
+
+    .explore-more-section {
+        padding: 20px;
+    }
+
+    .explore-title {
+        font-size: 1.5rem;
+    }
+
+    .explore-subtitle {
+        font-size: 1rem;
+    }
+
+    .explore-image {
+        margin-top: 20px;
+    }
+
+    .offers-carousel .owl-nav {
+        top: -60px;
+    }
+
+    .gov-bus-carousel-wrapper {
+        padding: 20px;
+    }
+
+    .gov-bus-card {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+    }
+
+    .gov-bus-logo {
+        margin-right: 0;
+        margin-bottom: 15px;
+        width: 70px;
+        height: 70px;
+        font-size: 30px;
+    }
+
+    .gov-bus-content {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .prime-feature {
+        min-width: 100%;
+    }
+
+    .prime-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .prime-badge {
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+
+    .prime-cities {
+        gap: 15px;
+    }
+
+    .prime-city {
+        width: 80px;
+    }
+
+    .city-image {
+        width: 60px;
+        height: 60px;
+    }
+
+    .city-name {
+        font-size: 0.8rem;
+    }
+
+    .payanam-card {
+        padding: 25px 20px;
+    }
+
+    .card-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .payanam-card h3 {
+        font-size: 1.2rem;
+    }
+}
